@@ -1,0 +1,27 @@
+---
+- name: playbook to build our docker image
+  hosts: deploy
+  tasks:
+    - name: remove existing bashscripts directory and ignore task if bashscripts folder is not there
+      ansible.builtin.shell:
+        cmd: sudo rm -r bashscripts
+      ignore_errors: yes
+
+    - name: create new bashscripts directory
+      ansible.builtin.shell:
+        cmd: sudo mkdir bashscripts
+
+    - name: clone bashscripts repo into server
+      ansible.builtin.shell:
+        cmd: sudo git clone https://github.com/Krishna227227/kubernetes
+        chdir: bashscripts/
+
+    - name: giving ownership to build.sh and giving permissions to build.sh
+      ansible.builtin.shell:
+        cmd: sudo chown ubuntu deploy.sh && sudo chmod 744 deploy.sh
+        chdir: bashscripts/kubernetes
+
+    - name: running script to make build
+      ansible.builtin.shell:
+        cmd: ./deploy.sh
+        chdir: bashscripts/kubernetes/
