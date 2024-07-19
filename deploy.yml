@@ -13,7 +13,7 @@
 
     - name: clone bashscripts repo into server
       ansible.builtin.shell:
-        cmd: sudo git clone https://github.com/Krishna227227/kubernetes
+        cmd: sudo git clone https://github.com/Krishna227227/kubernetes.git
         chdir: bashscripts/
 
     - name: giving ownership to build.sh and giving permissions to build.sh
