@@ -13,15 +13,15 @@
 
     - name: clone bashscripts repo into server
       ansible.builtin.shell:
-        cmd: sudo git clone https://github.com/Krishna227227/react-nginx_bashscripts.git
+        cmd: sudo git clone https://github.com/Krishna227227/kubernetes.git
         chdir: bashscripts/
 
     - name: giving ownership to build.sh and giving permissions to build.sh
       ansible.builtin.shell:
         cmd: sudo chown ubuntu build.sh && sudo chmod 744 build.sh
-        chdir: bashscripts/react-nginx_bashscripts
+        chdir: bashscripts/kubernetes
 
     - name: running script to make build
       ansible.builtin.shell:
         cmd: ./build.sh
-        chdir: bashscripts/react-nginx_bashscripts/
+        chdir: bashscripts/kubernetes/
