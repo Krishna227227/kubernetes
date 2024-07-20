@@ -1,8 +1,8 @@
 # after including s3 (terraform init -backend-config="access_key=AKIAQLJEL434D5AIK5JT" -backend-config="secret_key=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")
 
-
+# adding vpc
 resource "aws_vpc" "main" {
-  cidr_block       = "80.20.0.0/16"
+  cidr_block       = "30.20.0.0/16"
   instance_tenancy = "default"
 
   tags = {
@@ -11,6 +11,7 @@ resource "aws_vpc" "main" {
     Envi = "${terraform.workspace}"
   }
 }
+# adding s3
 terraform {
   backend "s3" {
     bucket = "name"
