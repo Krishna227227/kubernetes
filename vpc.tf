@@ -1,4 +1,4 @@
-# after including s3 (terraform init -backend-config="access_key=AKIAQLJEL434D5AIK5JT" -backend-config="secret_key=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")
+# after including s3 (terraform init -backend-config="access_key=A" -backend-config="secret_key=R")
 
 # adding vpc
 resource "aws_vpc" "main" {
