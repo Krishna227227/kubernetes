@@ -1,9 +1,9 @@
 resource "aws_instance" "web1" {
-  ami           = "ami-030a5acd7c996ef60"
+  ami           = "ami-030"
   instance_type = "t2.medium"
-  key_name = "pvk227"
+  key_name = "pv"
 
   tags = {
-    Name = "test9"
+    Name = "test"
   }
 }
